@@ -3,13 +3,13 @@ pipeline {
      stages {
        stage ('checkout') {
          steps{
-           git credentialsId: 'edc0a7ea-802c-46e8-983c-4d2714ede055', url: 'http://192.168.1.236/vahidaAnju/DevOpsTest.git'
+           checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '4f6546d3-c9b1-4141-ba87-3e14710582a5', url: 'https://github.com/syedmahadhi/vahida.git']])
          }
        }
         
        stage('clone'){
             steps{
-             sh 'git clone '
+             sh 'git clone https://github.com/syedmahadhi/vahida.git'
              echo 'cloning phase'
             }
          }
