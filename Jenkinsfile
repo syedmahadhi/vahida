@@ -9,8 +9,7 @@ pipeline {
          
         stage ('cleanWS'){
            steps {
-             
-              
+               sh 'rm -r * /var/lib/jenkins/workspace/'
            }
          }
       
