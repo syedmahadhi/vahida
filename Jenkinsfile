@@ -15,20 +15,18 @@ pipeline {
           sh 'git config --global user.email "syedmahadhi.n@ciyes.com"'
          }
       }
-      
+          stage('run python'){
+       steps{
+         sh 'python3 main.py'
+          }
+        } 
       stage ('cleanWS'){
        steps {
            sh 'cd /var/lib/jenkins/workspace' 
            sh 'rm -r *'
           }
         }
-       stage('run python'){
-       steps{
-         sh 'python3 main.py'
-         echo 'python program running phase'
-          }
-         }
-       
+     
     }
 }
  
