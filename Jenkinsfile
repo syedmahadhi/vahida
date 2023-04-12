@@ -1,6 +1,14 @@
 pipeline {
     agent any
      stages {
+         
+             stage ('unset proxy') {
+      steps {
+       // sh 'git config --global --unset http.proxy'
+        sh 'git config --global user.name "vahidaanju"'
+        sh 'git config --global user.email "vahida.anju@ciyes.com"'
+      }
+    }
        stage ('checkout') {
          steps{
              sh'echo hi'
@@ -24,18 +32,8 @@ pipeline {
        echo 'python program running phase'
         }
        }
-         
-         stage ('unset proxy') {
-      steps {
-       // sh 'git config --global --unset http.proxy'
-        sh 'git config --global user.name "vahidaanju"'
-        sh 'git config --global user.email "vahida.anju@ciyes.com"'
-      }
-    }
-  
-   
      stage ('cleanWS'){
-     steps {
+      steps {
            sh 'cd /var/lib/jenkins/workspace' 
            sh 'rm -r *'
           }
